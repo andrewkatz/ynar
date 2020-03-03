@@ -1,5 +1,7 @@
 # You Need a Reconciler
 
+YNAB reconciliation tool.
+
 ## Installation
 
 Add this line to your application's Gemfile:
