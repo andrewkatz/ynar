@@ -2,7 +2,12 @@
 
 RSpec.describe Ynar::Transaction do
   describe '.from_csv' do
-    let(:row) { CSV.read('spec/support/fixtures/transactions.csv', headers: true).first }
+    let(:row) do
+      CSV.read(
+        File.expand_path('../support/fixtures/transactions.csv', __dir__),
+        headers: true
+      ).first
+    end
     subject { described_class.from_csv(row) }
 
     it { is_expected.to be_a(described_class) }
