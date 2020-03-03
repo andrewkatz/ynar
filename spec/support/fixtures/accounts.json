@@ -1,0 +1,85 @@
+{
+  "data": {
+    "accounts": [
+      {
+        "id": "c33faf1c-ed49-4f06-9d2a-904065ae0261",
+        "name": "Chase Checking",
+        "type": "checking",
+        "on_budget": true,
+        "closed": false,
+        "note": null,
+        "balance": 75870190,
+        "cleared_balance": 75870190,
+        "uncleared_balance": 0,
+        "transfer_payee_id": "76dc8d6f-3c40-4379-bc2f-855f941594d5",
+        "deleted": false
+      },
+      {
+        "id": "4a0592a3-9a1b-4c68-b4fe-62fc3ee20681",
+        "name": "Chase Freedom (Due 18th)",
+        "type": "creditCard",
+        "on_budget": true,
+        "closed": false,
+        "note": null,
+        "balance": -8871540,
+        "cleared_balance": -8871540,
+        "uncleared_balance": 0,
+        "transfer_payee_id": "d1f472b0-80f0-4b6f-9f75-3ef45533d610",
+        "deleted": false
+      },
+      {
+        "id": "ac44617d-0b12-40eb-befe-f904ee96fa31",
+        "name": "Chase Savings",
+        "type": "savings",
+        "on_budget": true,
+        "closed": false,
+        "note": null,
+        "balance": 300290,
+        "cleared_balance": 300290,
+        "uncleared_balance": 0,
+        "transfer_payee_id": "9983d43a-728b-46fc-b426-758a3ff59ede",
+        "deleted": false
+      },
+      {
+        "id": "cb20a25b-ac69-478b-8533-530736440c9d",
+        "name": "American Express (Due 28th)",
+        "type": "creditCard",
+        "on_budget": true,
+        "closed": false,
+        "note": null,
+        "balance": 0,
+        "cleared_balance": 0,
+        "uncleared_balance": 0,
+        "transfer_payee_id": "6be46cca-8026-40c5-98ab-a2aeedb4d077",
+        "deleted": false
+      },
+      {
+        "id": "04dc15a2-2dcc-427b-ba65-ce05dcc4b69b",
+        "name": "Amazon.com Store Card (Due 28th)",
+        "type": "creditCard",
+        "on_budget": true,
+        "closed": true,
+        "note": null,
+        "balance": 0,
+        "cleared_balance": 0,
+        "uncleared_balance": 0,
+        "transfer_payee_id": "1d94c56a-950a-4942-bbb9-58fcd1ed99a6",
+        "deleted": false
+      },
+      {
+        "id": "12eca9cc-69fd-4768-87e8-409b883bf0d9",
+        "name": "Ally Savings",
+        "type": "savings",
+        "on_budget": true,
+        "closed": false,
+        "note": null,
+        "balance": 24960,
+        "cleared_balance": 24960,
+        "uncleared_balance": 0,
+        "transfer_payee_id": "9d2a5903-912b-4ea9-93a6-860dbf687e85",
+        "deleted": false
+      }
+    ],
+    "server_knowledge": 4660
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "data": {
+    "transactions": [
+      {
+        "id": "7bc6e414-c441-40ad-b309-9cc4456ad6a2",
+        "date": "2019-02-25",
+        "amount": -80190,
+        "memo": "",
+        "cleared": "cleared",
+        "approved": true,
+        "flag_color": null,
+        "account_id": "c33faf1c-ed49-4f06-9d2a-904065ae0261",
+        "account_name": "Chase Checking",
+        "payee_id": "ee940059-3681-417f-bbbb-cc2f6e847a5c",
+        "payee_name": "Pavilions Store Thousand Oaks CA",
+        "category_id": "c234e866-7034-403e-8678-4dea922a51fa",
+        "category_name": "Groceries",
+        "transfer_account_id": null,
+        "transfer_transaction_id": null,
+        "matched_transaction_id": null,
+        "import_id": "YNAB:-80190:2019-02-25:1",
+        "deleted": false,
+        "subtransactions": []
+      }
+    ],
+    "server_knowledge": 4660
+  }
+}

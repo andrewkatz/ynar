@@ -1,0 +1,72 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'bundler/setup'
+
+require 'csv'
+require 'pry'
+require 'tty/prompt'
+require 'tty/spinner'
+require 'yaml'
+require 'ynar'
+
+def spin(text)
+  spinner = TTY::Spinner.new("[:spinner] #{text} ...", format: :dots)
+  spinner.auto_spin
+  result = yield
+  spinner.stop('Done!')
+  result
+end
+
+config = Ynar::Config.new('config.yaml')
+api = Ynar::Api.new(config)
+prompt = TTY::Prompt.new
+
+budgets = spin('Fetching budgets') { api.budgets }
+fail if budgets.size > 1
+
+budget_id = budgets.first['id']
+accounts = spin('Fetching accounts') { api.accounts(budget_id) }
+
+account_name = prompt.select("\nWhich account?", accounts.map { |a| a['name'] })
+account_id = accounts.find { |a| a['name'] == account_name }['id']
+
+csv_path = prompt.ask('Path to CSV transactions?', default: 'transactions.csv')
+account_transactions = CSV.read(csv_path, headers: true)
+
+reconcile_map = {}
+
+start_date = prompt.ask('Start date?', convert: :date)
+end_date = prompt.ask('End date?', convert: :date)
+date_range = start_date..end_date
+
+puts
+
+spin('Analyzing CSV') do
+  account_transactions.each do |account_transaction|
+    transaction = Ynar::Transaction.from_csv(account_transaction)
+    if date_range.include?(transaction.date)
+      reconcile_map[transaction.match_key] ||= []
+      reconcile_map[transaction.match_key] << transaction
+    end
+  end
+end
+
+ynab_transactions = spin('Fetching transactions') do
+  api.transactions(budget_id, account_id, start_date)
+end
+
+spin('Analyzing YNAB') do
+  ynab_transactions.each do |ynab_transaction|
+    transaction = Ynar::Transaction.from_ynab(ynab_transaction)
+    if date_range.include?(transaction.date)
+      reconcile_map[transaction.match_key] ||= []
+      reconcile_map[transaction.match_key] << transaction
+    end
+  rescue StandardError
+  end
+end
+
+reconcile_diff = reconcile_map.select { |_, transactions| transactions.size.odd? }
+
+binding.pry
