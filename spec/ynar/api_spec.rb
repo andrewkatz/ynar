@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe Ynar::Api do
-  let(:config) { Ynar::Config.new('spec/support/config.yaml') }
+  let(:config) { Ynar::Config.new(File.expand_path('../support/config.yaml', __dir__)) }
 
   describe '.new' do
     subject { described_class.new(config) }
